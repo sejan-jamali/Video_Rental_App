@@ -1,0 +1,35 @@
+﻿@using Raw_Vidly_App.Models
+@model Customer
+@{
+    ViewBag.Title = "AddCustomer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>AddCustomer</h2>
+
+@using (@Html.BeginForm("AddCustomer", "Customer"))
+{
+    <div>
+        @Html.LabelFor(c => c.CustomerName)
+        @Html.TextBoxFor(c => c.CustomerName)
+    </div>
+
+    <div>
+        @Html.LabelFor(c => c.Email)
+        @Html.TextBoxFor(c => c.Email)
+    </div>
+
+    <div>
+        @Html.LabelFor(c => c.BirthDate)
+        @Html.TextBoxFor(c => c.BirthDate)
+    </div>
+
+    <div>
+        @Html.LabelFor(c => c.MembershipId)
+        @Html.DropDownList("MembershipId", "Select")
+    </div>
+
+    <div>
+        <input type="submit" value="Save" />
+    </div>
+}

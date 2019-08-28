@@ -1,0 +1,50 @@
+﻿@using Raw_Vidly_App.Models
+
+@model  MembershipType
+@{
+    ViewBag.Title = "AddmemberType";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    IEnumerable<MembershipType> MembershipType = ViewBag.MembershipType;
+}
+
+<h2>AddmemberType</h2>
+<table id="member" class="table table-bordered table-hover">
+    <thead>
+    <tr>
+        <th>MemberType Name</th>
+        <th>Money</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (MembershipType m in MembershipType)
+{
+       <tr>
+
+           <td>@m.MembershipName</td>
+           <td>coming soon</td>
+           <td> @using (Html.BeginForm("Delete", "MembershipType", new { id = m.Id }))
+{
+    <input type="submit" value="Delete" class="btn btn-default" />
+} </td>
+
+    </tr>
+ 
+    
+}
+    </tbody>
+</table>
+
+@using (@Html.BeginForm("AddmemberType", "MembershipType"))
+{
+    
+
+    <div>
+        @Html.TextBoxFor(c => c.MembershipName)
+    </div>
+    <div>
+        <input type="submit" value="Save" />
+    </div>
+}
+
+

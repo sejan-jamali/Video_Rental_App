@@ -1,0 +1,97 @@
+﻿@using Raw_Vidly_App.Models
+@model Customer
+@{
+    ViewBag.Title = "AddCustomer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    @*<div class="form-horizontal">
+        <h4>Customer</h4>
+        <hr/>*@
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.CustomerId)
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.CustomerName, new {@class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CustomerName)
+                @Html.ValidationMessageFor(model => model.CustomerName)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Email, new {@class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Email)
+                @Html.ValidationMessageFor(model => model.Email)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.BirthDate, new {@class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.BirthDate)
+                @Html.ValidationMessageFor(model => model.BirthDate)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MembershipId, "MembershipId", new {@class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.DropDownList("MembershipId", String.Empty)
+                @Html.ValidationMessageFor(model => model.MembershipId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default"/>
+            </div>
+        </div>
+    </div>*@
+    
+    
+    
+    
+    
+    
+     <div>
+        @Html.LabelFor(c => c.CustomerName)
+        @Html.TextBoxFor(c => c.CustomerName)
+    </div>
+
+    <div>
+        @Html.LabelFor(c => c.Email)
+        @Html.TextBoxFor(c => c.Email)
+    </div>
+
+    <div>
+        @Html.LabelFor(c => c.BirthDate)
+        @Html.TextBoxFor(c => c.BirthDate)
+    </div>
+
+    <div>
+        @Html.LabelFor(c => c.MembershipId)
+        @Html.DropDownList("MembershipId", "Select")
+    </div>
+
+    <div>
+        <input type="submit" value="Save" />
+    </div>
+    
+    
+    
+    
+}
+
+@*<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}*@

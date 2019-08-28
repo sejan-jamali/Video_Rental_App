@@ -1,0 +1,49 @@
+﻿@using System.Collections
+@using Raw_Vidly_App.Models
+@model Genere
+@{
+    ViewBag.Title = "AddGenere";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    IEnumerable<Genere> GenereList = ViewBag.Generes;
+}
+
+<h2>AddGenere</h2>
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Genere Name</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Genere g in GenereList)
+        {
+            <tr>
+
+                <td>@g.GenereName</td>
+                <td>
+                    @using (Html.BeginForm("Delete", "Genere", new { id = g.GenereId }))
+                    {
+                        <input type="submit" value="Delete" class="btn btn-default" />
+                    }
+                </td>
+
+            </tr>
+
+
+        }
+    </tbody>
+</table>
+
+@using (@Html.BeginForm("AddGenere", "Genere"))
+{
+
+
+    <div>
+        @Html.TextBoxFor(g=>g.GenereName)
+    </div>
+    <div>
+        <input type="submit" value="Save" />
+    </div>
+}

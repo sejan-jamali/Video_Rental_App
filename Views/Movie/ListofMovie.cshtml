@@ -1,0 +1,50 @@
+﻿@using Raw_Vidly_App.Models
+@model Raw_Vidly_App.Models.Movie
+@{
+    ViewBag.Title = "ListofMovie";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    List<Movie> Movies = ViewBag.Movies;
+}
+
+<h2>ListofMovie</h2>
+
+
+
+@{
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Genere</th>
+                <th>Price</th>
+                <th>Release Date</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Movie movies in Movies)
+            {
+                <tr>
+                    <td>@movies.MovieName</td>
+                
+                    <td>
+                        @movies.Genere.GenereName
+                    </td>
+                
+                    <td>@movies.Price</td>
+                
+                    <td>@movies.ReleaseDate</td>
+                
+                    <td>
+                        @using (Html.BeginForm("ListofMovie", "Movie", new { id = movies.MovieId }))
+                        {
+                            <input type="submit" value="Delete" class="btn btn-danger" />
+                        }
+                    </td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+
+}

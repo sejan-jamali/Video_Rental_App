@@ -1,0 +1,87 @@
+﻿@using Microsoft.AspNet.Identity
+@using Raw_Vidly_App.Models
+@model Raw_Vidly_App.Models.Movie
+@{
+    ViewBag.Title = "ListofMovie";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    List<Movie> Movies = ViewBag.Movies;
+    //List<Request> requests = ViewBag.Request;
+}
+
+<h2>ListofMovie</h2>
+
+@{
+    var id = @Html.HiddenFor(c => c.CustomersId);
+
+}
+<p>id</p>
+@{
+    @Html.HiddenFor(c => c.CustomersId);
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Genere</th>
+                <th>Price</th>
+                <th>Release Date</th>
+                <th>Rent</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Movie movies in Movies)
+            {
+                <tr>
+                    <td>@movies.MovieName</td>
+
+                    <td>
+                        @movies.Genere.GenereName
+                    </td>
+
+                    <td>@movies.Price</td>
+
+                    <td>@movies.ReleaseDate</td>
+
+                    <td>
+
+                        @using (Html.BeginForm("CustomerMovieId", "Movie", new { mid = movies.MovieId, cid = movies.CustomerId }))
+                        {
+
+
+                            <input type="submit" value="Rent" class="btn btn-success" />
+                        }
+                    </td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+
+}
+
+@{
+    @*<table class="table table-bordered table-hover">
+        @*<thead>
+            <tr>
+                <th>Name</th>
+
+            </tr>
+        </thead>
+        <tbody>*@
+    @*@foreach (Request request in requests)
+                {
+                    <tr>
+                        <td>@request</td>
+
+
+
+                        <td></td>
+                    </tr>
+
+                }
+            </tbody>
+        </table>*@
+
+}@*@using (Html.BeginForm("RequestMovie", "Request", new {id = movies.MovieId}))
+    {
+        <input type="submit" value="Rent" class="btn btn-success"/>
+    }*@

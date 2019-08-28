@@ -1,0 +1,20 @@
+﻿@using Raw_Vidly_App.Models
+@model Customer
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>@Html.DisplayNameFor(model => model.CustomerName)</h3>
+<h4>@Html.DisplayFor(model => model.CustomerName)</h4>
+<ul>
+    <li>@Html.DisplayFor(m => m.BirthDate)</li>
+    <li>@Html.DisplayFor(m => m.Email)</li>
+</ul>
+@using (Html.BeginForm())
+{
+    <input type="submit" value="Delete" class="btn btn-default"/>
+@Html.ActionLink("Back to List", "ListofCustomer")
+}

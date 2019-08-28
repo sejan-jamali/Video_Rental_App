@@ -1,0 +1,15 @@
+﻿@using Raw_Vidly_App.Models
+@model Customer
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+<h3>@Html.DisplayNameFor(model=>model.CustomerName)</h3>
+<h4>@Html.DisplayFor(model => model.CustomerName)</h4>
+<ul>
+    <li>@Html.DisplayFor(m=>m.BirthDate)</li>
+    <li>@Html.DisplayFor(m=>m.Email)</li>
+    <li>@Html.DisplayFor(m=>m.MembershipType)</li>
+</ul>

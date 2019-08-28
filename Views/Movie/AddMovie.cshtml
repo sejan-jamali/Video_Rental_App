@@ -1,0 +1,46 @@
+﻿@using Raw_Vidly_App.Models
+@model Movie
+@{
+    ViewBag.Title = "AddMovie";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    //List<>
+}
+
+<h2>AddMovie</h2>
+
+@using (@Html.BeginForm("AddMovie", "Movie"))
+{
+    <div>
+        @Html.LabelFor(m => m.MovieName)
+        @Html.TextBoxFor(m => m.MovieName)
+    </div>
+
+    <div>
+        @Html.LabelFor(m => m.Genere)
+        @Html.DropDownList("GenereId", "Select")
+    </div>
+
+    <div>
+        @Html.LabelFor(m => m.ReleaseDate)
+        @Html.TextBoxFor(m => m.ReleaseDate)
+    </div>
+    
+    <div>
+        @Html.LabelFor(m => m.AddDate)
+        @Html.TextBoxFor(m => m.AddDate)
+    </div>
+
+    <div>
+        @Html.LabelFor(m => m.Price)
+        @Html.TextBoxFor(m => m.Price)
+    </div>
+
+    <div>
+        @Html.LabelFor(m => m.Stock)
+        @Html.TextBoxFor(m => m.Stock)
+    </div>
+
+    <div>
+        <input type="submit" value="Save" class="btn btn-success"/>
+    </div>
+}

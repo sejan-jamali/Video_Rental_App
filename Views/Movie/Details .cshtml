@@ -1,0 +1,17 @@
+﻿@using Raw_Vidly_App.Models
+
+@model Movie
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<h3>@Model.MovieName</h3>
+<h4>@Model.ReleaseDate</h4>
+<ul>
+    <li>@Model.AddDate</li>
+    <li>@Model.Genere</li>
+    <li>@Model.Price</li>
+</ul>
